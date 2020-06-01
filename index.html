@@ -75,7 +75,7 @@
         margin-left: 70px;
     }
 
-    .visualize, .clear, .maze_generator{
+    .visualize, .clear, .maze_generator,.terain_generator{
         /* position:absolute;s */
 
         border : none;
@@ -87,7 +87,7 @@
         /* font-style: */
         background: #ff7af6;
     }
-    .visualize:hover:enabled, .clear:hover:enabled, .maze_generator:hover:enabled{
+    .visualize:hover:enabled, .clear:hover:enabled, .maze_generator:hover:enabled,.terain_generator:hover:enabled{
         border : none;
         background: #ff00ed;
         color : #fff;
@@ -95,11 +95,11 @@
 
     }
 
-    .visualize:active:enabled, .clear:active:enabled, .maze_generator:active:enabled{
+    .visualize:active:enabled, .clear:active:enabled, .maze_generator:active:enabled,.terain_generator:active:enabled{
         background : #d600c7;
     }
 
-    .visualize:focus,  .clear:focus, .maze_generator:focus{
+    .visualize:focus,  .clear:focus, .maze_generator:focus,.terain_generator:focus{
         outline: none;
     }
 
@@ -119,7 +119,7 @@
   </style>
   <script src="libraries/p5.js"></script>
   <script src="libraries/p5.sound.js"></script>
-  
+
   <script src="js/Path Finding Algorithms/breadthfirst.js"></script>
   <script src="js/Path Finding Algorithms/astar.js"></script>
   <script src="js/Path Finding Algorithms/dijkstras.js"></script>
@@ -166,14 +166,14 @@
                 <output id="slider_val">2</output>
             </div>
             <br>
-            <div class="maze_div" style=" margin-left: 325px;">
+            <div class="maze_div" style=" margin-left: 247px;">
                 <button type="button" class="maze_generator" onclick="maze_generate()">Generate Maze</button>
+                <button type="button" class="terrain_generator" onclick="terrain_setup()">Generate Terrain</button>
             </div>
 
         </div>
 
     </div>
-
 
 
 </body>
