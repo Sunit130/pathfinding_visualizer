@@ -27,6 +27,8 @@ function maze_setup(){
     maze_stack = [];
     for(var i=0;i<cols;i++){
         for(var j=0;j<rows;j++){
+            grid[i][j].weight = 1;
+            grid[i][j].weight_color = 255;
             if(i%2==0 || j%2==0){
                 grid[i][j].wall = true;
             }
@@ -42,6 +44,8 @@ function maze_setup(){
     document.querySelector('.visualize').disabled = true;
     document.querySelector('.clear').disabled = true;
     document.querySelector('#slider').disabled = true;
+    document.querySelector('.terrain_generator').disabled = true;
+
 
 
     start = grid[1][1];
@@ -83,10 +87,44 @@ function maze_draw(){
         document.querySelector('.visualize').disabled = false;
         document.querySelector('.clear').disabled = false;
         document.querySelector('#slider').disabled = false;
+        document.querySelector('.terrain_generator').disabled = false;
+
         end = grid[cols -2 ][rows -2];
         for(var i=0;i<cols;i++){
             for(var j=0;j<rows;j++){
                 grid[i][j].visited = false;
+            }
+        }
+    }
+
+}
+
+function terrain_setup(){
+    var t_start = 5;
+    for(var i=0;i<cols;i++){
+        for(var j=0;j<rows;j++){
+            if(grid[i][j] != start && grid[i][j]!=end){
+                grid[i][j].wall = false;
+                let we = t_start + floor(random(-5,6));
+                grid[i][j].weight = t_start;
+                if(we >0 && we<11){
+                    grid[i][j].weight = we;
+                    t_start = we;
+                }
+                grid[i][j].weight_color = 255 - grid[i][j].weight*10;
+
+            }
+        }
+    }
+    for(var i=0;i<cols;i++){
+        for(var j=0;j<rows;j++){
+            if(grid[i][j] != start && grid[i][j]!=end){
+                t_start = 0;
+                for(var o=0;o<grid[i][j].neighbours.length;o++)
+                    t_start = t_start + grid[i][j].neighbours[o].weight;
+                grid[i][j].weight = floor(t_start/grid[i][j].neighbours.length);
+                grid[i][j].weight_color = 255 - grid[i][j].weight*10;
+
             }
         }
     }
