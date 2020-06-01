@@ -33,7 +33,7 @@ function setupAstar(){
                 grid[i][j].weight_color = 255 - grid[i][j].weight*10;
             grid[i][j].f = 0;
             grid[i][j].h = 0;
-            grid[i][j].f = 0;
+            grid[i][j].g = 0;
 
         }
     }
