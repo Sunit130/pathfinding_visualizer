@@ -81,6 +81,7 @@ function maze_generate(){
 
 function pathMethod(){
     v = document.querySelector('#type').value;
+    start.previous = undefined;
     res = false;
     go = true;
     if(v==1){
