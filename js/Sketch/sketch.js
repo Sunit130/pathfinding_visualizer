@@ -113,7 +113,7 @@ function clearBoard(){
     var pos = (windowWidth - width)/2;
     if(windowWidth<800)
         pos = 0;
-    canvas.position(pos,30);
+    canvas.position(pos,10);
     for(var i=0;i<cols;i++){
         for(var j=0;j<rows;j++){
             grid[i][j].wall = false;
@@ -202,7 +202,7 @@ function mousePressed(){
 // }
 
 function setup(){
-    canvas = createCanvas(800,600);
+    canvas = createCanvas(820,620);
     w = width / cols;
     h = height / rows;
     for(var i=0;i<grid.length;i++){
@@ -238,7 +238,7 @@ function draw(){
         document.querySelector('.top').style.width = "800px";
 
     }
-    canvas.position(pos,30);
+    canvas.position(pos,10);
     if(maze_ended){
         for(var i=0;i<cols;i++){
             for(var j=0;j<rows;j++){
